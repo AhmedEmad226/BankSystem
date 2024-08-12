@@ -8,5 +8,5 @@ class Test{
 
 int main()
 {
-    cout << "Hello";
+
 }
