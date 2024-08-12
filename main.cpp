@@ -7,6 +7,5 @@ class Test{
 };
 
 int main()
-{
-    cout << "Hello";
+{cout<<"mohand"
 }
