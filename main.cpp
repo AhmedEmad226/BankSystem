@@ -7,5 +7,9 @@ class Test{
 };
 
 int main()
+<<<<<<< Updated upstream
 {cout<<"mohand"
+=======
+{
+>>>>>>> Stashed changes
 }
