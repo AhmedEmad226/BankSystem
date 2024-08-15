@@ -2,6 +2,7 @@
 #include <string>
 using namespace std;
 
+
 class Person {
 protected:
     string name;
@@ -19,10 +20,22 @@ public:
         this->id = id;
     }
     void setName(string name) {
-        this->name = name;
+        if (name.length() >= 5 && name.length() <= 20) {
+            this->name = name;
+            cout << "The name has been changed Successfully\n";
+        }
+        else {
+            cout << "The name must be between 5 ~ 20 letters\n";
+        }
     }
     void SetPass(string password) {
-        this->password = password;
+        if (password.length() >= 8 && password.length() <= 20) {
+            this->password = password;
+            cout << "The Password has been changed Successfully\n";
+        }
+        else {
+            cout << "The Password must be between 8 ~ 20 letters\n";
+        }
     }
 
     // Getters
@@ -42,6 +55,65 @@ public:
         cout << "ID: " << id << endl;
     }
 };
+
+
+class Employee : public Person {
+    double salary;
+
+public:
+    // Constructors
+    Employee() {
+        salary = 0;
+    }
+
+    Employee(string name, int id, string password, double salary) : Person(name, id, password) {
+        this->salary = salary;
+        this->name = name;
+        this->id = id;
+        this->password = password;
+    }
+
+    // Getters
+
+    double getSalary(){
+        return salary;
+    }
+
+    // Login Method
+
+void loginAccount(string password, int id) {
+
+    if (this->password == password && this->id == id) {
+        cout << "\nSuccessful Login\n";
+    }
+
+    else {
+        cout << "\nUnsuccessful Login\n";
+    }
+}
+
+    // get paid method
+
+    void getPaid() {
+        if (salary > 0) {
+        cout << "\nyou got paid $" << salary << endl;
+        salary = 0;
+        }
+
+        else {
+            cout << "\nYou already got paid, your salary is 0\n";
+        }
+    }
+
+    void displayEmployee() {
+        cout << "Name: " << name << endl;
+        cout << "ID: " << id << endl;
+        cout << "Password: " << password << endl;
+        cout << "Salary: " << salary << endl;
+    }
+};
+
+
 
 class Client : public Person {
 private:
@@ -117,6 +189,7 @@ int main() {
     // Creating clients
     Client p("Team", 123, "password");
     Client q("Amin", 456, "password456");
+    Employee emp("Ahmed", 789, "ABC123@#$", 5500);
 
 
     p.displayInfo();
@@ -133,5 +206,18 @@ int main() {
 
     p.transferTo(q, 200, "wrongpassword");
 
+    cout << "\n\n";
+
+    cout << "Employee's Name: " << emp.GetName() << endl;
+    cout << "Employee's ID: " << emp.GetID() << endl;
+    cout << "Employee's Pass: " << emp.GetPass() << endl;
+    cout << "Employee's Salary: " << emp.getSalary() << endl;
+
+    emp.loginAccount("ABC123@#$", 789);
+    emp.getPaid();
+    emp.getPaid();
+    emp.setName("Ahmed Emad");
+    emp.SetPass("EFG456%^&");
+    emp.displayEmployee();
 
 }
