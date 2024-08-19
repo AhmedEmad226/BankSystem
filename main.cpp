@@ -56,10 +56,10 @@ public:
     }
 };
 
-<<<<<<< HEAD
+
 int main()
-{cout<<"mohand"
-=======
+{
+cout<<"mohand"
 
 class Employee : public Person {
     double salary;
