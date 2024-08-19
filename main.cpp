@@ -186,6 +186,18 @@ public:
 };
 
 int main() {
+
+    // Increase the console screen width for a better view
+    cout << "#     #                                                                                      ######                       " << endl;
+	cout << "#  #  # ###### #       ####   ####  #    # ######    #####  ####      ####  #    # #####     #     #   ##   #    # #    # " << endl;
+	cout << "#  #  # #      #      #    # #    # ##  ## #           #   #    #    #    # #    # #    #    #     #  #  #  ##   # #   #  " << endl;
+	cout << "#  #  # #####  #      #      #    # # ## # #####       #   #    #    #    # #    # #    #    ######  #    # # #  # ####   " << endl;
+	cout << "#  #  # #      #      #      #    # #    # #           #   #    #    #    # #    # #####     #     # ###### #  # # #  #   " << endl;
+	cout << "#  #  # #      #      #    # #    # #    # #           #   #    #    #    # #    # #   #     #     # #    # #   ## #   #  " << endl;
+	cout << " ## ##  ###### ######  ####   ####  #    # ######      #    ####      ####   ####  #    #    ######  #    # #    # #    # " << endl;
+
+    cout << "\n\n\n";
+
     // Creating clients
     Client p("Team", 123, "password");
     Client q("Amin", 456, "password456");
