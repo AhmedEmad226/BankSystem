@@ -56,6 +56,10 @@ public:
     }
 };
 
+<<<<<<< HEAD
+int main()
+{cout<<"mohand"
+=======
 
 class Employee : public Person {
     double salary;
@@ -233,3 +237,4 @@ int main() {
     emp.displayEmployee();
 
 }
+>>>>>>> d7b9b1f749070089d55248cd382b60d92d51b9be
