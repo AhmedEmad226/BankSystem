@@ -2,7 +2,6 @@
 #include <string>
 using namespace std;
 
-
 class Person {
 protected:
     string name;
@@ -16,7 +15,7 @@ public:
     Person(string name, int id, string password) : name(name), id(id), password(password) {}
 
     // Setters
-    void SetID(int id) {
+    void setID(int id) {
         this->id = id;
     }
     void setName(string name) {
@@ -28,7 +27,7 @@ public:
             cout << "The name must be between 5 ~ 20 letters\n";
         }
     }
-    void SetPass(string password) {
+    void setPass(string password) {
         if (password.length() >= 8 && password.length() <= 20) {
             this->password = password;
             cout << "The Password has been changed Successfully\n";
@@ -39,13 +38,13 @@ public:
     }
 
     // Getters
-    int GetID() const {
+    int getID() const {
         return id;
     }
-    string GetName() const {
+    string getName() const {
         return name;
     }
-    string GetPass() const {
+    string getPass() const {
         return password;
     }
 
@@ -55,11 +54,6 @@ public:
         cout << "ID: " << id << endl;
     }
 };
-
-
-int main()
-{
-cout<<"mohand"
 
 class Employee : public Person {
     double salary;
@@ -72,38 +66,29 @@ public:
 
     Employee(string name, int id, string password, double salary) : Person(name, id, password) {
         this->salary = salary;
-        this->name = name;
-        this->id = id;
-        this->password = password;
     }
 
     // Getters
-
-    double getSalary(){
+    double getSalary() {
         return salary;
     }
 
     // Login Method
-
-void loginAccount(string password, int id) {
-
-    if (this->password == password && this->id == id) {
-        cout << "\nSuccessful Login\n";
+    void loginAccount(string password, int id) {
+        if (this->password == password && this->id == id) {
+            cout << "\nSuccessful Login\n";
+        }
+        else {
+            cout << "\nUnsuccessful Login\n";
+        }
     }
-
-    else {
-        cout << "\nUnsuccessful Login\n";
-    }
-}
 
     // get paid method
-
     void getPaid() {
         if (salary > 0) {
-        cout << "\nyou got paid $" << salary << endl;
-        salary = 0;
+            cout << "\nYou got paid $" << salary << endl;
+            salary = 0;
         }
-
         else {
             cout << "\nYou already got paid, your salary is 0\n";
         }
@@ -116,8 +101,6 @@ void loginAccount(string password, int id) {
         cout << "Salary: " << salary << endl;
     }
 };
-
-
 
 class Client : public Person {
 private:
@@ -176,7 +159,7 @@ public:
         if (this->password == password) {
             if (amount <= balance) {
                 balance -= amount;
-                recipient.deposit(amount, recipient.GetPass());
+                recipient.deposit(amount, recipient.getPass());
                 cout << "Transfer successful. New balance: " << balance << endl;
             }
             else {
@@ -190,15 +173,14 @@ public:
 };
 
 int main() {
-
     // Increase the console screen width for a better view
     cout << "#     #                                                                                      ######                       " << endl;
-	cout << "#  #  # ###### #       ####   ####  #    # ######    #####  ####      ####  #    # #####     #     #   ##   #    # #    # " << endl;
-	cout << "#  #  # #      #      #    # #    # ##  ## #           #   #    #    #    # #    # #    #    #     #  #  #  ##   # #   #  " << endl;
-	cout << "#  #  # #####  #      #      #    # # ## # #####       #   #    #    #    # #    # #    #    ######  #    # # #  # ####   " << endl;
-	cout << "#  #  # #      #      #      #    # #    # #           #   #    #    #    # #    # #####     #     # ###### #  # # #  #   " << endl;
-	cout << "#  #  # #      #      #    # #    # #    # #           #   #    #    #    # #    # #   #     #     # #    # #   ## #   #  " << endl;
-	cout << " ## ##  ###### ######  ####   ####  #    # ######      #    ####      ####   ####  #    #    ######  #    # #    # #    # " << endl;
+    cout << "#  #  # ###### #       ####   ####  #    # ######    #####  ####      ####  #    # #####     #     #   ##   #    # #    # " << endl;
+    cout << "#  #  # #      #      #    # #    # ##  ## #           #   #    #    #    # #    # #    #    #     #  #  #  ##   # #   #  " << endl;
+    cout << "#  #  # #####  #      #      #    # # ## # #####       #   #    #    #    # #    # #    #    ######  #    # # #  # ####   " << endl;
+    cout << "#  #  # #      #      #      #    # #    # #           #   #    #    #    # #    # #####     #     # ###### #  # # #  #   " << endl;
+    cout << "#  #  # #      #      #    # #    # #    # #           #   #    #    #    # #    # #   #     #     # #    # #   ## #   #  " << endl;
+    cout << " ## ##  ###### ######  ####   ####  #    # ######      #    ####      ####   ####  #    #    ######  #    # #    # #    # " << endl;
 
     cout << "\n\n\n";
 
@@ -207,10 +189,8 @@ int main() {
     Client q("Amin", 456, "password456");
     Employee emp("Ahmed", 789, "ABC123@#$", 5500);
 
-
     p.displayInfo();
     q.displayInfo();
-
 
     p.deposit(1000, "password");
     p.checkBalance();
@@ -219,22 +199,19 @@ int main() {
     p.checkBalance();
     q.checkBalance();
 
-
     p.transferTo(q, 200, "wrongpassword");
 
     cout << "\n\n";
 
-    cout << "Employee's Name: " << emp.GetName() << endl;
-    cout << "Employee's ID: " << emp.GetID() << endl;
-    cout << "Employee's Pass: " << emp.GetPass() << endl;
+    cout << "Employee's Name: " << emp.getName() << endl;
+    cout << "Employee's ID: " << emp.getID() << endl;
+    cout << "Employee's Pass: " << emp.getPass() << endl;
     cout << "Employee's Salary: " << emp.getSalary() << endl;
 
     emp.loginAccount("ABC123@#$", 789);
     emp.getPaid();
     emp.getPaid();
     emp.setName("Ahmed Emad");
-    emp.SetPass("EFG456%^&");
+    emp.setPass("EFG456%^&");
     emp.displayEmployee();
-
 }
->>>>>>> d7b9b1f749070089d55248cd382b60d92d51b9be
