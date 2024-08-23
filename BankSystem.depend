@@ -1,0 +1,10 @@
+# depslib dependency file v1.0
+1724422086 source:c:\users\ahmed\onedrive\desktop\banksystem\banksystem\main.cpp
+	<iostream>
+	<string>
+
+1724421426 source:c:\users\ahmed\onedrive\desktop\banksystem\banksystem\src\person.cpp
+	"Person.h"
+
+1724421524 c:\users\ahmed\onedrive\desktop\banksystem\banksystem\include\person.h
+
