@@ -49,7 +49,7 @@ public:
         return password;
     }
 
-    void loginAccount(string password, int id, bool &check) {
+    void loginAccount(string password, int id, bool& check) {
         if (this->password == password && this->id == id) {
             check = true;
             cout << "\nSuccessful Login\n";
@@ -176,6 +176,64 @@ public:
     }
 };
 
+class Admin : public Person {
+
+    double salary;
+
+public:
+    // Constructors
+    Admin() {
+        salary = 0;
+    }
+
+
+    Admin(string name, int id, string password, double salary) : Person(name, id, password) {
+        this->salary = salary;
+        this->name = name;
+        this->id = id;
+        this->password = password;
+    }
+    // Getters
+
+    double getSalary() {
+        return salary;
+    }
+
+    // Login Method
+
+    void loginAccount(string password, int id) {
+
+        if (this->password == password && this->id == id) {
+            cout << "\nSuccessful Login\n";
+        }
+
+        else {
+            cout << "\nUnsuccessful Login\n";
+        }
+    }
+
+    // get paid method
+
+    void getPaid() {
+        if (salary > 0) {
+            cout << "\nyou got paid $" << salary << endl;
+            salary = 0;
+        }
+
+        else {
+            cout << "\nYou already got paid, your salary is 0\n";
+        }
+    }
+
+    void displayAdmin() {
+        cout << "Name: " << name << endl;
+        cout << "ID: " << id << endl;
+        cout << "Password: " << password << endl;
+        cout << "Salary: " << salary << endl;
+    }
+};
+
+
 int main() {
     // Increase the console screen width for a better view
     cout << "#     #                                                                                      ######                       " << endl;
@@ -213,33 +271,33 @@ int main() {
             cout << "\nChoose from the methods below\n\n1 Check the salary\n2 get paid\n3 Change Name\n4 Change ID\n5 Change Password\n\n";
             cin >> input;
         }
-        else if (!check){
+        else if (!check) {
             cout << "\nTry again later\n";
         }
 
 
-        if (input == 1){
+        if (input == 1) {
             cout << "Your salary is " << emp.getSalary() << endl;
         }
 
-        else if (input == 2){
+        else if (input == 2) {
             cout << "Loading...\n";
             emp.getPaid();
         }
 
-        else if (input == 3){
+        else if (input == 3) {
             cout << "your new Name: ";
             cin >> s;
             emp.setName(s);
         }
 
-        else if (input == 4){
+        else if (input == 4) {
             cout << "your new Id: ";
             cin >> temp;
             emp.setID(id);
         }
 
-        else if (input == 3){
+        else if (input == 3) {
             cout << "your new Password: ";
             cin >> s;
             emp.setPass(s);
