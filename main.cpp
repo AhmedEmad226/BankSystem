@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+# include<vector>
 using namespace std;
 
 class Person
@@ -144,7 +145,7 @@ public:
                 balance -= amount;
                 cout << "Withdrawal successful. New balance: " << balance << endl;
             }
-            else {
+            else if (amount >= balance) {
                 cout << "Insufficient funds." << endl;
             }
         }
@@ -232,8 +233,26 @@ public:
         cout << "Salary: " << salary << endl;
     }
 };
+class DataSourceInterface {
+public:
+    virtual ~DataSourceInterface() {
+    
+    }
 
+    virtual void addClient(Client* client) = 0;
+    virtual void addEmployee(Employee* employee) = 0;
+    virtual void addAdmin(Admin* admin) = 0;
 
+    virtual vector<Client*> getAllClients() = 0;
+    virtual vector<Employee*> getAllEmployees() = 0;
+    virtual vector<Admin*> getAllAdmins() = 0;
+
+    virtual void removeAllClients() = 0;
+    virtual void removeAllEmployees() = 0;
+    virtual void removeAllAdmins() = 0;
+};
+
+//Main Function
 int main() {
     // Increase the console screen width for a better view
     cout << "#     #                                                                                      ######                       " << endl;
