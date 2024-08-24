@@ -234,7 +234,6 @@ public:
     }
 };
 class DataSourceInterface {
-public:
     virtual ~DataSourceInterface() {
     
     }
