@@ -1,0 +1,3 @@
+C:/Users/moazs/OneDrive/Desktop/MoazProject/cmake-build-debug/CMakeFiles/MoazProject.dir
+C:/Users/moazs/OneDrive/Desktop/MoazProject/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/moazs/OneDrive/Desktop/MoazProject/cmake-build-debug/CMakeFiles/rebuild_cache.dir
