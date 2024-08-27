@@ -9,8 +9,6 @@ using namespace std;
 #include "DataSourceInterface.h"
 
 
-
-
 //Main Function
 int main(){
     // Creating clients
