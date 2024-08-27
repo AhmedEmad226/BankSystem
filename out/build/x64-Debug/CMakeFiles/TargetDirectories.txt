@@ -1,0 +1,3 @@
+C:/New folder/BankSystem/out/build/x64-Debug/CMakeFiles/MoazProject.dir
+C:/New folder/BankSystem/out/build/x64-Debug/CMakeFiles/edit_cache.dir
+C:/New folder/BankSystem/out/build/x64-Debug/CMakeFiles/rebuild_cache.dir

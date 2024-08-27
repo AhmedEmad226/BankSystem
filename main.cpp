@@ -17,17 +17,6 @@ using namespace std;
 
 //Main Function
 int main(){
-    // Increase the console screen width for a better view
-    cout << "#     #                                                                                      ######                       " << endl;
-    cout << "#  #  # ###### #       ####   ####  #    # ######    #####  ####      ####  #    # #####     #     #   ##   #    # #    # " << endl;
-    cout << "#  #  # #      #      #    # #    # ##  ## #           #   #    #    #    # #    # #    #    #     #  #  #  ##   # #   #  " << endl;
-    cout << "#  #  # #####  #      #      #    # # ## # #####       #   #    #    #    # #    # #    #    ######  #    # # #  # ####   " << endl;
-    cout << "#  #  # #      #      #      #    # #    # #           #   #    #    #    # #    # #####     #     # ###### #  # # #  #   " << endl;
-    cout << "#  #  # #      #      #    # #    # #    # #           #   #    #    #    # #    # #   #     #     # #    # #   ## #   #  " << endl;
-    cout << " ## ##  ###### ######  ####   ####  #    # ######      #    ####      ####   ####  #    #    ######  #    # #    # #    # " << endl;
-
-    cout << "\n\n\n";
-
     // Creating clients
     Employee emp("Ahmed", 789, "pass123", 5500);
     Client c1("Team", 123, "password"), c2("Amin", 456, "password456");
