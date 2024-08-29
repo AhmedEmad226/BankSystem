@@ -2,7 +2,10 @@
 #define PERSON_H
 #include <iostream>
 using namespace std;
-//WE Must put the Person here
+#include <fstream>
+#include <vector>
+
+
 class Person{
 protected:
     string name;
@@ -65,6 +68,8 @@ public:
         cout << "Name: " << name << endl;
         cout << "ID: " << id << endl;
     }
+
+
 };
 
 #endif // PERSON_H
