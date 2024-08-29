@@ -1,0 +1,4 @@
+Name: amin
+ID: 789
+Password: adminPass
+Salary: 7500
