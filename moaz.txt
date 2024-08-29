@@ -1,0 +1,4 @@
+Name: moaz
+ID: 1
+Password: pass123
+Salary: 5500
