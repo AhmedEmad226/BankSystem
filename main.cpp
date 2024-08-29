@@ -14,6 +14,7 @@ int main() {
     Client c1("hello", 123, "password"), c2("Amin", 456, "password456");
 
     Admin admin("amin", 789, "adminPass", 7500);
+
  int input{ 0 }, id{ 0 }, temp{ 0 };
     string pass, s;
     bool check = false;
@@ -125,7 +126,6 @@ int main() {
             cin >> s;
             c1.setPass(s);
         };
-
 
     return 0;
 };
