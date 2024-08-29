@@ -16,15 +16,15 @@ public:
     // Constructors
     Client() : Person(), balance(0.0) {}
 
-    Client(string name, int id, string password) : Person(name, id, password), balance(0.0) {
+    Client(string name, int id, string password)
+        : Person(name, id, password), balance(0.0) {
         saveToFile();
     }
 
     // Getters
-    double getBalance() const {
-        return balance;
-    }
+    double getBalance() const { return balance; }
 
+    // Deposit method
     void deposit(double amount, const string& password) {
         if (this->password == password) {
             if (amount > 0) {
@@ -39,7 +39,7 @@ public:
         }
     }
 
-
+    // Withdraw method
     void withdraw(double amount, const string& password) {
         if (this->password == password) {
             if (amount <= balance) {
@@ -54,19 +54,19 @@ public:
         }
     }
 
-
+    // Check balance method
     void checkBalance() const {
         cout << "Current balance: " << balance << endl;
     }
 
-
+    // Transfer method
     void transferTo(Client& recipient, double amount, const string& password) {
         if (this->password == password) {
             if (amount <= balance) {
                 balance -= amount;
-                recipient.deposit(amount, recipient.getPass());
+                recipient.deposit(amount, recipient.password());
                 cout << "Transfer successful. New balance: " << balance << endl;
-                saveToFile();  // Save to file after transfer
+                saveToFile();
             } else {
                 cout << "Insufficient funds for transfer." << endl;
             }
@@ -75,20 +75,21 @@ public:
         }
     }
 
+    // Save client data to file
     void saveToFile() const {
         if (name.empty()) {
             cerr << "Error: Client name is empty.\n";
             return;
         }
 
-        std::string filename = name + ".txt";
-        std::ofstream outFile(filename);
+        string filename = name + ".txt";
+        ofstream outFile(filename);
 
         if (outFile.is_open()) {
-            outFile << "Name: " << name << std::endl;
-            outFile << "ID: " << id << std::endl;
-            outFile << "Password: " << password << std::endl;
-            outFile << "Balance: " << balance << std::endl;
+            outFile << "Name: " << name << endl;
+            outFile << "ID: " << id << endl;
+            outFile << "Password: " << password << endl;
+            outFile << "Balance: " << balance << endl;
             outFile.close();
         } else {
             cerr << "Error: Could not open file: " << filename << endl;

@@ -6,7 +6,9 @@
 #include <fstream>
 #include <vector>
 
+
 class Employee : public Person {
+private:
     double salary;
     vector<Client> clients;  // Collection to store clients
 
@@ -20,9 +22,7 @@ public:
     }
 
     // Getters
-    double getSalary() const {
-        return salary;
-    }
+    double getSalary() const { return salary; }
 
     // Method to get paid
     void getPaid() {
@@ -35,6 +35,7 @@ public:
         }
     }
 
+    // Display employee details
     void displayEmployee() const {
         cout << "Name: " << name << endl;
         cout << "ID: " << id << endl;
@@ -42,18 +43,19 @@ public:
         cout << "Salary: " << salary << endl;
     }
 
+    // Save employee data to file
     void saveToFile() const {
         string filename = name + ".txt";
         ofstream outFile(filename);
 
         if (outFile.is_open()) {
             outFile << "Name: " << name << endl;
-            outFile << "ID: " << id <<endl;
+            outFile << "ID: " << id << endl;
             outFile << "Password: " << password << endl;
             outFile << "Salary: " << salary << endl;
             outFile.close();
         } else {
-            cout << "Error: Could not create file: " << filename <<endl;
+            cerr << "Error: Could not create file: " << filename << endl;
         }
     }
 
@@ -66,7 +68,7 @@ public:
     // Method to search for a client by ID
     Client* searchClient(int id) {
         for (auto& client : clients) {
-            if (client.getId() == id) {
+            if (client.getID() == id) {
                 return &client;
             }
         }
@@ -82,20 +84,25 @@ public:
         }
 
         for (const auto& client : clients) {
-            cout << "Name: " << client.getName() << std::endl;
-            cout << "ID: " << client.getId() << std::endl;
-            cout << "Balance: " << client.getBalance() << std::endl;
+            cout << "Name: " << client.getName() << endl;
+            cout << "ID: " << client.getID() << endl;
+            cout << "Balance: " << client.getBalance() << endl;
             cout << "-------------------------\n";
         }
     }
 
     // Method to edit a client's information
-    void editClient(int id, std::string name, std::string password, double balance) {
+    void editClient(int id, const string& name, const string& password, double balance) {
         Client* client = searchClient(id);
         if (client) {
             client->setName(name);
             client->setPassword(password);
-            client->deposit(balance - client->getBalance(), client->getPassword()); // Adjust balance
+            double balanceDiff = balance - client->getBalance();
+            if (balanceDiff > 0) {
+                client->deposit(balanceDiff, password);
+            } else if (balanceDiff < 0) {
+                client->withdraw(-balanceDiff, password);
+            }
             client->saveToFile();
             cout << "Client details updated successfully.\n";
         } else {
